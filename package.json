@@ -23,6 +23,10 @@
       "react-app/jest"
     ]
   },
+  "prettier": {
+    "singleQuote": true,
+    "semi": false
+  },
   "browserslist": {
     "production": [
       ">0.2%",
