@@ -1,7 +1,10 @@
 import './App.css'
-import { Switch, Route, Redirect } from 'react-router-dom'
+import { Switch, Route, Redirect, Link, useHistory } from 'react-router-dom'
+import { Button } from '@mui/material'
 
 function App() {
+  const history = useHistory()
+
   return (
     <div className="App">
       <header className="App-header">
@@ -11,9 +14,11 @@ function App() {
         <Switch>
           <Route exact path="/">
             <p>/</p>
+            <Link to="/search">Go to /search</Link>
           </Route>
           <Route exact path="/search">
             <p>/search</p>
+            <Button onClick={() => history.push('/')}>Go to /</Button>
           </Route>
 
           {/* 404 */}
