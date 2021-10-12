@@ -8,20 +8,24 @@ export const App = () => {
   return (
     <>
       <CssBaseline />
-      <Container maxWidth="sm">
-        <Header />
-        <main>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/search" component={Search} />
+      <Header />
+      <Container
+        component="main"
+        maxWidth="md"
+        sx={{
+          mt: '8em',
+        }}
+      >
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/search" component={Search} />
 
-            {/* 404 */}
-            <Route path="*">
-              {/* <NoMatch /> */}
-              <Redirect to="/" />
-            </Route>
-          </Switch>
-        </main>
+          {/* 404 */}
+          <Route path="*">
+            {/* <NoMatch /> */}
+            <Redirect to="/" />
+          </Route>
+        </Switch>
       </Container>
     </>
   )
