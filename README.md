@@ -1,6 +1,6 @@
 # BestSearch
 
-Bootstrap via [create-react-app](https://create-react-app.dev/).
+Bootstrap with [create-react-app](https://create-react-app.dev/).
 
 ## Quick Start
 
