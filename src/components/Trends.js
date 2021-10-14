@@ -19,8 +19,8 @@ const useStyles = makeStyles((theme) => ({
   },
   growth: {
     color: theme.palette.text.caption,
-    fontSize: '0.85rem',
-    marginTop: '0.5rem',
+    fontSize: '0.85rem !important',
+    marginTop: '0.5rem !important',
   },
   chart: {
     marginTop: '5rem',
@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   footer: {
     color: theme.palette.text.caption,
     textAlign: 'center',
-    fontSize: '0.85rem',
+    fontSize: '0.85rem !important',
     padding: '0.5rem',
   },
 }))
