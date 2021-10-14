@@ -20,6 +20,12 @@ Or run with fake mock API:
 yarn start:mock
 ```
 
+## Konwn Issues
+
+- Refersh or visit app from _sub-route_ may got 404 error _on live demo_
+
+  https://stackoverflow.com/a/46060999
+
 ## References
 
 - https://react-redux.js.org/tutorials/quick-start
