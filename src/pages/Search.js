@@ -21,7 +21,7 @@ const Search = ({
 
   const keywordS = Utils.sanitizeKeyword(keyword)
 
-  // Update URL if keyword from address bar is formatted
+  // Update URL if keyword from address bar is sanitized
   if (keyword !== keywordS) {
     history.push(`/search/${keywordS}`)
   }
