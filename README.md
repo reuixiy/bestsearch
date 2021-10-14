@@ -2,7 +2,7 @@
 
 Bootstrap with [CRA](https://create-react-app.dev/) + [React Redux](https://react-redux.js.org/) + [React Router](https://reactrouter.com/) + [MUI](https://mui.com/) + [Recharts](https://recharts.org/).
 
-Live demo: https://io-oi.me/bestsearch/search/Best+Shoes
+Live demo: https://io-oi.me/bestsearch
 
 ## Quick Start
 
