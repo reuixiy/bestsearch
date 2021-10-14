@@ -57,13 +57,15 @@ const Trends = ({ keywordS, productTrends }) => {
           <Typography className={classes.footer}>
             {/* Start date */}
             <Moment
-              date={product.search_msv[0].date}
+              date={Utils.formatDate(product.search_msv[0].date)}
               format={CARD_DATE_FORMATE}
             />
             {` - `}
             {/* Final date */}
             <Moment
-              date={product.search_msv[product.search_msv.length - 1].date}
+              date={Utils.formatDate(
+                product.search_msv[product.search_msv.length - 1].date
+              )}
               format={CARD_DATE_FORMATE}
             />
           </Typography>

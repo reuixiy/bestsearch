@@ -43,4 +43,17 @@ const processMSV = (array) => {
   return newArray
 }
 
-export { sanitizeKeyword, formatKeyword, formatTitle, calcGrowth, processMSV }
+// Add leading zero to month for moment.js,
+// otherwise the result will be like "Invalid date" on iOS,
+// see https://momentjs.com/guides/#/warnings/js-date/
+const formatDate = (date) =>
+  date.length !== 7 ? [date.slice(0, 5), 0, date.slice(5)].join('') : date
+
+export {
+  sanitizeKeyword,
+  formatKeyword,
+  formatTitle,
+  calcGrowth,
+  processMSV,
+  formatDate,
+}
