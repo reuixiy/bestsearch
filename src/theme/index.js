@@ -12,6 +12,9 @@ const theme = createTheme({
       dark: '#000',
       contrastText: '#fff',
     },
+    text: {
+      caption: 'rgba(0, 0, 0, 0.5)',
+    },
   },
 })
 

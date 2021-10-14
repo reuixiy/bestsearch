@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material'
-import { SearchBar } from '../components/SearchBar'
+import SearchBar from '../components/SearchBar'
 
-export const Home = () => {
+const Home = () => {
   return (
     <>
       <Typography
@@ -11,6 +11,7 @@ export const Home = () => {
         sx={{
           fontSize: '2.5rem',
           fontWeight: 300,
+          mt: '8rem',
           mb: '4rem',
         }}
       >
@@ -21,3 +22,5 @@ export const Home = () => {
     </>
   )
 }
+
+export default Home
