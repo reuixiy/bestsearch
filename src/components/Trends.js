@@ -39,7 +39,7 @@ const Trends = ({ keywordS, productTrends }) => {
   return (
     productTrends &&
     productTrends.map((product, index) => (
-      <Grid item xs={12} sm={6} md={3} key={product.name}>
+      <Grid item xs={12} sm={6} md={3} key={index}>
         <Paper variant="outlined" className={classes.root}>
           <Box className={classes.header}>
             <Typography component="h3" variant="h6" className={classes.title}>
