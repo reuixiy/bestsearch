@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     padding: '1em',
   },
   title: {
-    fontWeight: 300,
+    fontWeight: '300 !important',
   },
   growth: {
     color: theme.palette.text.caption,
