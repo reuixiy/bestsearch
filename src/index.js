@@ -25,7 +25,11 @@ const store = createStore(
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <BrowserRouter
+        basename={
+          process.env.NODE_ENV === 'production' ? process.env.PUBLIC_URL : '/'
+        }
+      >
         <ThemeProvider theme={theme}>
           <App />
         </ThemeProvider>
