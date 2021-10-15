@@ -2,14 +2,12 @@ import * as actions from './types'
 import { APIs } from '../apis'
 import * as Utils from '../utils'
 
-export const updateKeyword = (keyword) => {
-  return {
-    type: actions.KEYWORD_UPDATED,
-    payload: {
-      keyword: Utils.formatKeyword(keyword),
-    },
-  }
-}
+export const updateKeyword = (keyword) => ({
+  type: actions.KEYWORD_UPDATED,
+  payload: {
+    keyword: Utils.formatKeyword(keyword),
+  },
+})
 
 export const searchTrends = (keyword) => (dispatch) => {
   // console.log('searchTrends has been called.')
