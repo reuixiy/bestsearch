@@ -10,7 +10,7 @@ const initialState = {
 
 const searchReducer = (state = initialState, action) => {
   switch (action.type) {
-    case actions.KEYWORD_UPDATED:
+    case actions.KEYWORD_INPUTTED:
       return {
         ...state,
         keyword: action.payload.keyword,

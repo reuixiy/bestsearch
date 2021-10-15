@@ -3,7 +3,7 @@ import { APIs } from '../apis'
 import * as Utils from '../utils'
 
 export const updateKeyword = (keyword) => ({
-  type: actions.KEYWORD_UPDATED,
+  type: actions.KEYWORD_INPUTTED,
   payload: {
     keyword: Utils.formatKeyword(keyword),
   },
