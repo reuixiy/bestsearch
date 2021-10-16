@@ -1,15 +1,13 @@
-const sanitizeKeyword = (keyword) =>
-  keyword && keyword.trim().split(' ').join('+')
+const sanitizeKeyword = (keyword) => keyword.trim().split(' ').join('+')
 
-const formatKeyword = (keyword) => keyword && keyword.split('+').join(' ')
+const formatKeyword = (keyword) => keyword.split('+').join(' ')
 
-// Emphasize search keyword for card's title
-const formatTitle = (title, keywordS) =>
-  keywordS &&
+// Emphasize search keyword for product's title
+const formatTitle = (title, keyword) =>
   title
     .split(' ')
     .map((char, index) =>
-      keywordS.split('+').includes(char) ? (
+      keyword.split('+').includes(char) ? (
         <span style={{ fontWeight: '400' }} key={index}>
           {char}
         </span>

@@ -1,13 +1,20 @@
 import * as actions from './types'
 import { APIs } from '../apis'
-import * as Utils from '../utils'
 
-export const updateKeyword = (keyword) => ({
-  type: actions.KEYWORD_INPUTTED,
-  payload: {
-    keyword: Utils.formatKeyword(keyword),
-  },
-})
+export const updateKeyword = (o) => (dispatch) => {
+  const actionMap = {
+    input: actions.KEYWORD_INPUTTED,
+    clear: actions.KEYWORD_CLEARED,
+    format: actions.KEYWORD_FORMATTED,
+  }
+
+  dispatch({
+    type: actionMap[o.type],
+    payload: {
+      keyword: o.value,
+    },
+  })
+}
 
 export const searchTrends = (keyword) => (dispatch) => {
   // console.log('searchTrends has been called.')
@@ -31,30 +38,28 @@ export const searchTrends = (keyword) => (dispatch) => {
 }
 
 export const fetchTrends = (keyword) => async (dispatch) => {
-  if (keyword) {
-    APIs.search(keyword)
-      .then((res) => {
-        // console.log(res.product_trends)
+  APIs.search(keyword)
+    .then((res) => {
+      // console.log(res.product_trends)
 
-        dispatch({
-          type: actions.TRENDS_SEARCH_FETCHED,
-          payload: {
-            data: res.product_trends,
-          },
-        })
+      dispatch({
+        type: actions.TRENDS_SEARCH_FETCHED,
+        payload: {
+          data: res.product_trends,
+        },
       })
-      .catch((err) => {
-        console.error(err)
+    })
+    .catch((err) => {
+      console.error(err)
 
-        dispatch({
-          type: actions.TRENDS_SEARCH_FAILED,
-          payload: {
-            message: {
-              type: 'error',
-              content: err.toString(),
-            },
+      dispatch({
+        type: actions.TRENDS_SEARCH_FAILED,
+        payload: {
+          message: {
+            type: 'error',
+            content: err.toString(),
           },
-        })
+        },
       })
-  }
+    })
 }

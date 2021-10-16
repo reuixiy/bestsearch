@@ -12,27 +12,33 @@ const SearchBar = ({ keyword, updateKeyword }) => {
   const path = location.pathname
 
   const handleChange = (e) => {
-    const { value } = e.target
+    const keyword = e.target.value
 
-    updateKeyword(value)
+    updateKeyword({
+      type: 'input',
+      value: keyword,
+    })
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
 
     const formData = new FormData(e.target)
-    const keywordInput = Utils.sanitizeKeyword(formData.get('keyword'))
+    const keywordInputS = Utils.sanitizeKeyword(formData.get('keyword'))
 
     // In homepage, do nothing if keyword is empty
-    if (path === '/' && !keywordInput) return
+    if (path === '/' && !keywordInputS) return
 
-    history.push(`/search/${keywordInput}`)
+    history.push(`/search/${keywordInputS}`)
   }
 
   // Clear keyword on route change to homepage
   useEffect(() => {
     if (path === '/') {
-      updateKeyword('')
+      updateKeyword({
+        type: 'clear',
+        value: '',
+      })
     }
   }, [path, updateKeyword])
 

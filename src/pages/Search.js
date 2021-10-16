@@ -19,26 +19,34 @@ const Search = ({
   const { keyword } = useParams()
   const history = useHistory()
 
-  const keywordS = Utils.sanitizeKeyword(keyword)
-
-  // Update URL if keyword from address bar is sanitized
-  if (keyword !== keywordS) {
-    history.push(`/search/${keywordS}`)
-  }
-
-  // Start search
+  // Start search on page loaded
   useEffect(() => {
-    if (keywordS !== undefined) {
-      updateKeyword(keywordS)
-    }
+    // Update loading status
+    searchTrends(keyword)
 
-    searchTrends(keywordS)
-    fetchTrends(keywordS)
-  }, [keywordS, updateKeyword, searchTrends, fetchTrends])
+    const keywordS = keyword && Utils.sanitizeKeyword(keyword)
+
+    if (keywordS) {
+      if (keywordS !== keyword) {
+        // Redirect URL if keyword is not sanitized (from address bar)
+        history.push(`/search/${keywordS}`)
+      } else {
+        // Start request if keyword is sanitized already
+        fetchTrends(keyword)
+
+        // Update formatted keyword to store, since we don't want
+        // display sanitized keyword in input for user
+        updateKeyword({
+          type: 'format',
+          value: keyword,
+        })
+      }
+    }
+  }, [keyword, history, updateKeyword, searchTrends, fetchTrends])
 
   return (
     <>
-      {message ? (
+      {message || !keyword ? (
         <Message message={message} />
       ) : (
         <>
@@ -57,7 +65,7 @@ const Search = ({
             {isLoading ? (
               <Skeleton />
             ) : (
-              <Trends keywordS={keywordS} productTrends={productTrends} />
+              <Trends keyword={keyword} productTrends={productTrends} />
             )}
           </Grid>
         </>

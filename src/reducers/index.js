@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
 import * as actions from '../actions/types'
+import * as Utils from '../utils'
 
 const initialState = {
   isLoading: false,
@@ -15,6 +16,17 @@ const searchReducer = (state = initialState, action) => {
         ...state,
         keyword: action.payload.keyword,
       }
+    case actions.KEYWORD_CLEARED:
+      return {
+        ...state,
+        keyword: '',
+      }
+    case actions.KEYWORD_FORMATTED:
+      return {
+        ...state,
+        keyword: Utils.formatKeyword(action.payload.keyword),
+      }
+
     case actions.TRENDS_SEARCH_STARTED:
       return {
         ...state,

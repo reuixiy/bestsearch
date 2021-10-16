@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const Trends = ({ keywordS, productTrends }) => {
+const Trends = ({ keyword, productTrends }) => {
   const classes = useStyles()
 
   return (
@@ -43,7 +43,7 @@ const Trends = ({ keywordS, productTrends }) => {
         <Paper variant="outlined" className={classes.root}>
           <Box className={classes.header}>
             <Typography component="h3" variant="h6" className={classes.title}>
-              {Utils.formatTitle(product.name, keywordS)}
+              {Utils.formatTitle(product.name, keyword)}
             </Typography>
             <Typography className={classes.growth}>
               {`Growth ${Utils.calcGrowth(product)}%`}
