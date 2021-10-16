@@ -23,7 +23,7 @@ const Chart = ({ product, index }) => {
         margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
       >
         <Area
-          type="natural"
+          type="monotone"
           isAnimationActive={false}
           dataKey="sv"
           stroke="none"

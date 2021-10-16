@@ -34,7 +34,7 @@ const Search = ({
         // Start request if keyword is sanitized already
         fetchTrends(keyword)
 
-        // Update formatted keyword to store, since we don't want
+        // Update formatted keyword to store, since we don't want to
         // display sanitized keyword in input for user
         updateKeyword({
           type: 'format',

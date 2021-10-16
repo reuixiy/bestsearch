@@ -24,7 +24,10 @@ const SearchBar = ({ keyword, updateKeyword }) => {
     e.preventDefault()
 
     const formData = new FormData(e.target)
-    const keywordInputS = Utils.sanitizeKeyword(formData.get('keyword'))
+    const keywordInputS = Utils.sanitizeKeyword(
+      // Escape "+" to "%2B"
+      formData.get('keyword').replace(/\+/g, '%2B')
+    )
 
     // In homepage, do nothing if keyword is empty
     if (path === '/' && !keywordInputS) return

@@ -1,18 +1,26 @@
 const sanitizeKeyword = (keyword) => keyword.trim().split(' ').join('+')
 
-const formatKeyword = (keyword) => keyword.split('+').join(' ')
+const formatKeyword = (keyword) =>
+  keyword
+    .split('+')
+    .map((word) => word.replace(/%2B/g, '+'))
+    .join(' ')
+    .trim()
 
 // Emphasize search keyword for product's title
 const formatTitle = (title, keyword) =>
   title
     .split(' ')
-    .map((char, index) =>
-      keyword.split('+').includes(char) ? (
+    .map((word, index) =>
+      keyword
+        .split('+')
+        .map((word) => word.replace(/%2B/g, '+'))
+        .includes(word) ? (
         <span style={{ fontWeight: '400' }} key={index}>
-          {char}
+          {word}
         </span>
       ) : (
-        char
+        word
       )
     )
     .reduce((prev, curr) => [prev, ' ', curr])
